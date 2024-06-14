@@ -3,7 +3,10 @@ on: push
 # Specify an array of jobs
 jobs:
   first-job:
-    runs-on: windows-latest
+    # runs-on: windows-latest
+    runs-on: ubuntu-latest
+    # Specify the container instance to run the workflow steps
+    container: node:17.6.0
     steps:
       - run: node --version
       - run: npm --version
