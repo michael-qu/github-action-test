@@ -1,17 +1,24 @@
+name: node Continuous Integration
 # This workflow will be triggered when we push a commit to the repo
 on: push
 # Specify an array of jobs
 jobs:
-  first-job:
+  build-node:
+    name: Build and run Node project
     # runs-on: windows-latest
     runs-on: ubuntu-latest
     # Specify the container instance to run the workflow steps
     container: node:17.6.0
     steps:
       - run: node --version
+        name: Check Node version
       - run: npm --version
+        name: Check npm version
       # Checkout our code into this workflow
       # https://github.com/actions/checkout
       - uses: actions/checkout@v4
+        name: Checkout code from Github
       - run: npm i
+        name: Install NPM packages
       - run: node index.js
+        name: Run Node application
