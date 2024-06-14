@@ -10,3 +10,8 @@ jobs:
     steps:
       - run: node --version
       - run: npm --version
+      # Checkout our code into this workflow
+      # https://github.com/actions/checkout
+      - uses: actions/checkout@v4
+      - run: npm i
+      - run: node index.js
