@@ -1,0 +1,9 @@
+# This workflow will be triggered when we push a commit to the repo
+on: push
+# Specify an array of jobs
+jobs:
+  first-job:
+    runs-on: windows-latest
+    steps:
+      - run: node --version
+      - run: npm --version
