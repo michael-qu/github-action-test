@@ -5,7 +5,7 @@
   "scripts": {
     "prebuild": "rm -rf build", 
     "build": "esbuild index.ts --bundle --minify --sourcemap --platform=node --target=es2020 --outfile=build/index.js", 
-    "postbuild": "cd build && zip -r index.zip index.js*",
+    "postbuild": "cp -R node_modules build/node_modules",
     "start": "node build/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -4,7 +4,7 @@ on: push
 # Specify an array of jobs
 jobs:
   build-project:
-    name: Build and run Node project
+    name: Build Node project
     # runs-on: windows-latest
     runs-on: ubuntu-latest
     # Specify the container instance to run the workflow steps
@@ -19,11 +19,11 @@ jobs:
       - name: Checkout code from Github
         uses: actions/checkout@v4
       - name: Install NPM dependencies
-        run: npm i
+        run: npm i --production
       - name: Build project assets
         run: npm run build
-      - name: Run Node application
-        run: npm start
+      # - name: Run Node application
+      #  run: npm start
       # If we don't upload the artifact, the built code will be cleaned up
       - name: Upload built JS code
         # https://github.com/actions/upload-artifact
