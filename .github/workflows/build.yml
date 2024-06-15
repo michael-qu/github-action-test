@@ -19,7 +19,7 @@ jobs:
       - name: Checkout code from Github
         uses: actions/checkout@v4
       - name: Install NPM dependencies
-        run: npm i --production
+        run: npm i
       - name: Build project assets
         run: npm run build
       # - name: Run Node application
