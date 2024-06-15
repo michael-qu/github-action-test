@@ -35,7 +35,7 @@ jobs:
           path: ./build         # path of the files to be zipped
 
   release-project:
-    name: Release project
+    name: Release and run project
     runs-on: ubuntu-latest
     # Job dependency
     needs: build-project
@@ -48,3 +48,5 @@ jobs:
           path: ./bin
       - name: Display structure of downloaded files
         run: ls -R
+      - name: Run Node application
+        run: node ./bin/index.js
