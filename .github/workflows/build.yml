@@ -8,17 +8,20 @@ jobs:
     # runs-on: windows-latest
     runs-on: ubuntu-latest
     # Specify the container instance to run the workflow steps
-    container: node:17.6.0
+    # container: node:17.6.0
     steps:
-      - run: node --version
-        name: Check Node version
-      - run: npm --version
-        name: Check npm version
+      # - run: node --version
+      #  name: Check Node version
+      # - run: npm --version
+      #  name: Check npm version
       # Checkout our code into this workflow
       # https://github.com/actions/checkout
-      - uses: actions/checkout@v4
-        name: Checkout code from Github
-      - run: npm i
-        name: Install NPM packages
-      - run: node index.js
-        name: Run Node application
+      - name: Checkout code from Github
+        uses: actions/checkout@v4
+      - name: Install NPM dependencies
+        run: npm i
+      - name: Build project assets
+        run: npm run build
+      - name: Run Node application
+        run: npm start
+        
