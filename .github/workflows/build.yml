@@ -24,4 +24,9 @@ jobs:
         run: npm run build
       - name: Run Node application
         run: npm start
-        
+      - name: Upload built JS code
+        # https://github.com/actions/upload-artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: built-js-code
+          path: ./build
